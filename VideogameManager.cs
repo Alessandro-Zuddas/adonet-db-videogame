@@ -132,5 +132,26 @@ namespace SqlClient
                 Console.WriteLine(ex.Message);
             }
         }
+
+        public void DeleteVideoGame(long gameId)
+        {
+            using var conn = new SqlConnection(connStr);
+            try
+            {
+                conn.Open();
+
+                var query = "DELETE"
+                    + " FROM videogames"
+                    + $" WHERE id = @gameID";
+                using var cmd = new SqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@gameID", gameId);
+                cmd.ExecuteNonQuery();
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
     }
 }

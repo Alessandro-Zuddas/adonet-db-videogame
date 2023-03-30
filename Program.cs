@@ -6,6 +6,12 @@ using SqlClient;
 var connStr = "Data Source=localhost;Initial Catalog=db_videogames;Integrated Security=True";
 var videogameManager = new VideogameManager(connStr);
 
+Console.WriteLine("Elimina un videogame dall'elenco");
+Console.WriteLine("Inserisci l'id del gioco che vuoi eliminare");
+var gameId = Convert.ToInt64(Console.ReadLine());
+
+videogameManager.DeleteVideoGame(gameId);
+
 Console.WriteLine("Ricerca gioco per ID");
 var userId = Convert.ToInt64(Console.ReadLine());
 
