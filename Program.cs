@@ -28,8 +28,20 @@ while (true)
             Console.WriteLine("Aggiungi un nome");
             var gameName = Console.ReadLine();
 
+            while(gameName == "" || gameName == null)
+            {
+                Console.WriteLine("Il nome deve contenere almeno un carattere!");
+                gameName = Console.ReadLine();
+            }
+
             Console.WriteLine("Aggiungi una overview");
             var gameOverview = Console.ReadLine();
+
+            while(gameOverview == "" || gameOverview == null)
+            {
+                Console.WriteLine("La overview deve contenere almeno un carattere!");
+                gameOverview = Console.ReadLine();
+            }
 
             Console.WriteLine("Aggiungi una data di rilascio");
             var gameRelease = Convert.ToDateTime(Console.ReadLine());
